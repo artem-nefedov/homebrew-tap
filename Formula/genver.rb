@@ -5,21 +5,21 @@ class Genver < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.0/genver_0.3.0_macos_arm64.tar.gz"
-      sha256 "aa9080cd81f0459754f3969cf2a6314cc9890d0429c421baf9bd87cc8e53d2b5"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.1/genver_0.3.1_macos_arm64.tar.gz"
+      sha256 "81dcaf2b1dc35b61574c9327863789fb6c8dab060969bbc6bc1b3470cf54f8d1"
     else
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.0/genver_0.3.0_macos_amd64.tar.gz"
-      sha256 "2aa689a0711eb35481478b1e9d3c9ea88b3cb7ad111185ffd2160257d829ee7e"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.1/genver_0.3.1_macos_amd64.tar.gz"
+      sha256 "a732d64c83d2326f2d817df4001fc08135148e78e3f51fd41f020d751d5be282"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.0/genver_0.3.0_linux_arm64.tar.gz"
-      sha256 "0e9043ef71617344f7ece785816a59e3172f4ee5f7e959aa5792d879f8ffde90"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.1/genver_0.3.1_linux_arm64.tar.gz"
+      sha256 "1ccca0034a13a49d4f6fb438f406c3784bab34ae498b06aa80558c8bd50881e9"
     else
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.0/genver_0.3.0_linux_amd64.tar.gz"
-      sha256 "772c6cc864d76bbcade0d1cd8c941d58aa41678dd8d30db949ac069c04c41815"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.1/genver_0.3.1_linux_amd64.tar.gz"
+      sha256 "423a662d0a95686a90f7cdafb94778211aa4d2505d3338908451a3d8ba32cd2a"
     end
   end
 
@@ -35,10 +35,10 @@ class Genver < Formula
           cur="${COMP_WORDS[COMP_CWORD]}"
           prev="${COMP_WORDS[COMP_CWORD-1]}"
 
-          opts="--help --version --format --tag-format --write-to --allow-nonhermetic --branch --tag-main --push-tag-to --debug"
+          opts="--help --version --format --format-tag --write-to --format-for --allow-nonhermetic --branch --tag-main --push-tag-to --debug"
 
           case "${prev}" in
-              --branch|--push-tag-to|--format|--tag-format|--format-for)
+              --branch|--push-tag-to|--format|--format-tag|--format-for)
                   # Free-form values; no known completion set.
                   return 0
                   ;;
@@ -65,7 +65,7 @@ class Genver < Formula
               '--help[Show help and exit]'
               '--version[Show genver'\\''s own version and exit]'
               '--format[Render the version through a Go template]:template:'
-              '--tag-format[Like --format, but only shapes the tag from --tag-main]:template:'
+              '--format-tag[Like --format, but only shapes the tag from --tag-main]:template:'
               '--write-to[Also write the output to the file(s) named by this template]:template:'
               '--format-for[Conditional prefix-based format rule (repeatable)]:prefix:'
               '--allow-nonhermetic[Expose all Sprig template functions, including non-repeatable ones]'
@@ -88,7 +88,7 @@ class Genver < Formula
       complete -c genver -l help              -d "Show help and exit"
       complete -c genver -l version           -d "Show genver's own version and exit"
       complete -c genver -l format            -r -d "Render the version through a Go template"
-      complete -c genver -l tag-format        -r -d "Like --format, but only shapes the tag from --tag-main"
+      complete -c genver -l format-tag        -r -d "Like --format, but only shapes the tag from --tag-main"
       complete -c genver -l write-to          -r -d "Also write output to file(s) named by this template"
       complete -c genver -l format-for        -r -d "Conditional prefix-based format rule (repeatable)"
       complete -c genver -l allow-nonhermetic -d "Expose all Sprig template functions, including non-repeatable ones"
