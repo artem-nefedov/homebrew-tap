@@ -5,21 +5,21 @@ class Genver < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.1.1/genver_0.1.1_macos_arm64.tar.gz"
-      sha256 "f51b1f887dd2e168aaf44fa97b65ebec73dc1522b15a60ea0ca9f6cd6f9b8af7"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.2.0/genver_0.2.0_macos_arm64.tar.gz"
+      sha256 "bcc587fa6a272a02a101e231ead2672eb423b8ffb7dd9784302e43b814ef1812"
     else
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.1.1/genver_0.1.1_macos_amd64.tar.gz"
-      sha256 "6dc5897c909a19cd5eed13ef715691844b7221dc81a400ae75893160abce55b3"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.2.0/genver_0.2.0_macos_amd64.tar.gz"
+      sha256 "35497034af7d738d95f86616b7c16fa51eea0833b6b6101760be39fd8136429b"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.1.1/genver_0.1.1_linux_arm64.tar.gz"
-      sha256 "1b3025598caf7bda4ca2d07aada430584cc9f46f8d59614a9b17472d85b2f18f"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.2.0/genver_0.2.0_linux_arm64.tar.gz"
+      sha256 "dd6fc8b6a7679017031c856380e98201792948e11c479d0a7ce6aa986d7c6936"
     else
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.1.1/genver_0.1.1_linux_amd64.tar.gz"
-      sha256 "47e841987fa958f986e7bd9e48fe3286c60002ab29247f06a041ac11c4faae93"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.2.0/genver_0.2.0_linux_amd64.tar.gz"
+      sha256 "08dbcb102229da7898e125919fa8416db34dcfb465ac9c830de63a830e3bd985"
     end
   end
 
@@ -38,7 +38,7 @@ class Genver < Formula
           opts="--help --version --format --tag-format --write-to --allow-nonhermetic --branch --tag-main --push-tag-to --debug"
 
           case "${prev}" in
-              --branch|--push-tag-to|--format|--tag-format)
+              --branch|--push-tag-to|--format|--tag-format|--format-for)
                   # Free-form values; no known completion set.
                   return 0
                   ;;
@@ -67,6 +67,7 @@ class Genver < Formula
               '--format[Render the version through a Go template]:template:'
               '--tag-format[Like --format, but only shapes the tag from --tag-main]:template:'
               '--write-to[Also write the output to the file(s) named by this template]:template:'
+              '--format-for[Only apply --format when the branch name starts with prefix]:prefix:'
               '--allow-nonhermetic[Expose all Sprig template functions, including non-repeatable ones]'
               '--branch[Branch name to compute for]:branch:'
               '--tag-main[Tag HEAD on main with the computed version]'
@@ -89,6 +90,7 @@ class Genver < Formula
       complete -c genver -l format            -r -d "Render the version through a Go template"
       complete -c genver -l tag-format        -r -d "Like --format, but only shapes the tag from --tag-main"
       complete -c genver -l write-to          -r -d "Also write output to file(s) named by this template"
+      complete -c genver -l format-for        -r -d "Only apply --format when the branch name starts with prefix"
       complete -c genver -l allow-nonhermetic -d "Expose all Sprig template functions, including non-repeatable ones"
       complete -c genver -l branch            -r -d "Branch name to compute for"
       complete -c genver -l tag-main          -d "Tag HEAD on main with the computed version"
