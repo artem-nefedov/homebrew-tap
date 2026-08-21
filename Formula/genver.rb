@@ -5,21 +5,21 @@ class Genver < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.1/genver_0.3.1_macos_arm64.tar.gz"
-      sha256 "81dcaf2b1dc35b61574c9327863789fb6c8dab060969bbc6bc1b3470cf54f8d1"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.4.0/genver_0.4.0_macos_arm64.tar.gz"
+      sha256 "dae00156fee92707f94d1bafe6908704574be1e1030a33987a2b4b56d13b5ab2"
     else
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.1/genver_0.3.1_macos_amd64.tar.gz"
-      sha256 "a732d64c83d2326f2d817df4001fc08135148e78e3f51fd41f020d751d5be282"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.4.0/genver_0.4.0_macos_amd64.tar.gz"
+      sha256 "b140e5f736d5ad58eb960cb5303d7c3d93879d5ed34eb277a22480dd9d59cddd"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.1/genver_0.3.1_linux_arm64.tar.gz"
-      sha256 "1ccca0034a13a49d4f6fb438f406c3784bab34ae498b06aa80558c8bd50881e9"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.4.0/genver_0.4.0_linux_arm64.tar.gz"
+      sha256 "da8b9e2b1d3c84feeef85708edfb63018b93c6b11710648a71358a8ec4eb668b"
     else
-      url "https://github.com/artem-nefedov/genver/releases/download/v0.3.1/genver_0.3.1_linux_amd64.tar.gz"
-      sha256 "423a662d0a95686a90f7cdafb94778211aa4d2505d3338908451a3d8ba32cd2a"
+      url "https://github.com/artem-nefedov/genver/releases/download/v0.4.0/genver_0.4.0_linux_amd64.tar.gz"
+      sha256 "bbff62d04d690eaf9448157ec04f3673d4d6541e0999b01c2fbca9747858b44e"
     end
   end
 
